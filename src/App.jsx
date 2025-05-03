@@ -44,8 +44,9 @@ function App() {
       }
 
       // Building the query URL
-      let queryUrl = `https://youtube-comments-backend-zqbx.onrender.com/comments?video_id=${videoId}`;
-      
+      // variável de ambiente para a URL base da API de comentários do YouTube
+      const apiBaseUrl = import.meta.env.VITE_YOUTUBE_COMMENTS_API_URL; 
+      let queryUrl = `${apiBaseUrl}/comments?video_id=${videoId}`;      
       if (keyword.trim()) {
         queryUrl += `&keyword=${encodeURIComponent(keyword.trim())}`;
       }
